@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Noobot.Core.Configuration;
 using Noobot.Examples.ConsoleService.Configuration;
 using Noobot.Examples.ConsoleService.Logging;
@@ -19,9 +15,9 @@ namespace Noobot.Examples.ConsoleService
 
         public static void Main(string[] args)
         {
-            Directory.SetCurrentDirectory(System.AppDomain.CurrentDomain.BaseDirectory);
+            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
-            Console.WriteLine($"Noobot assembly version: {Assembly.GetExecutingAssembly().GetName().Version}");
+            Console.WriteLine($"Noobot.Core assembly version: {Assembly.GetAssembly(typeof(Core.INoobotCore)).GetName().Version}");
 
             HostFactory.Run(x =>
             {
