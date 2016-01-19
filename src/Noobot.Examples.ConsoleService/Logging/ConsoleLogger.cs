@@ -4,7 +4,10 @@ using Noobot.Core.Configuration;
 
 namespace Noobot.Examples.ConsoleService.Logging
 {
-    public class ConsoleLogger : ILogger
+    /// <summary>
+    /// Used to copy everything written to console also to a file
+    /// </summary>
+    public class ConsoleLogger
     {
         private readonly IConfigReader _configReader;
         private TextWriterDistributor _distributor;
@@ -40,7 +43,7 @@ namespace Noobot.Examples.ConsoleService.Logging
             }
             catch (Exception)
             {
-                Console.WriteLine("Unable to write to log file, THIS IS NOT LOGGING TO FILE");
+                Console.WriteLine("Unable to write to log file, THIS SESSION IS NOT LOGGING TO FILE");
                 return null;
             }
         }

@@ -11,11 +11,12 @@ namespace Noobot.Examples.ConsoleService
     public class Program
     {
         private static readonly IConfigReader ConfigReader = new JsonConfigReader();
-        private static readonly ILogger Logger = new ConsoleLogger(ConfigReader);
+        private static readonly ConsoleLogger Logger = new ConsoleLogger(ConfigReader);
 
         public static void Main(string[] args)
         {
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+            Logger.Grapple();
 
             Console.WriteLine($"Noobot.Core assembly version: {Assembly.GetAssembly(typeof(Core.INoobotCore)).GetName().Version}");
 
@@ -27,7 +28,6 @@ namespace Noobot.Examples.ConsoleService
 
                     s.WhenStarted(n =>
                     {
-                        Logger.Grapple();
                         n.Start();
                     });
 

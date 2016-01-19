@@ -105,7 +105,6 @@
   <ItemGroup>
     <Compile Include="Configuration\JsonConfigReader.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
-    <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\TextWriterDistributor.cs" />
     <Compile Include="NoobotHost.cs" />
     <Compile Include="Program.cs" />

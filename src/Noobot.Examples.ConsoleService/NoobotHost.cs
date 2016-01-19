@@ -39,7 +39,7 @@ namespace Noobot.Examples.ConsoleService
         public void Stop()
         {
             Console.WriteLine("Disconnecting...");
-            _noobotCore.Disconnect();
+            _noobotCore?.Disconnect();
         }
     }
 }
