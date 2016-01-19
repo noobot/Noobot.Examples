@@ -14,7 +14,7 @@ namespace Noobot.Examples.ConsoleService
 {
     public class Program
     {
-        private static readonly IConfigReader ConfigReader = new ConfigReader();
+        private static readonly IConfigReader ConfigReader = new JsonConfigReader();
         private static readonly ILogger Logger = new ConsoleLogger(ConfigReader);
 
         public static void Main(string[] args)

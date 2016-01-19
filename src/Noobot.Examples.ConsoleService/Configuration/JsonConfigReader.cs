@@ -5,7 +5,10 @@ using Noobot.Core.Configuration;
 
 namespace Noobot.Examples.ConsoleService.Configuration
 {
-    public class ConfigReader : IConfigReader
+    /// <summary>
+    /// An example of how you could create a config reader. You might want to read out of AppConfig instead?
+    /// </summary>
+    public class JsonConfigReader : IConfigReader
     {
         public string SlackApiKey()
         {

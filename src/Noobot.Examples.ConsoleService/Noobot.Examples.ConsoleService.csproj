@@ -103,7 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\ConfigReader.cs" />
+    <Compile Include="Configuration\JsonConfigReader.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\TextWriterDistributor.cs" />
@@ -114,7 +114,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Configuration\config.default.json" />
-    <None Include="Configuration\config.json" />
+    <None Include="Configuration\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
