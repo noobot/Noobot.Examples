@@ -15,6 +15,10 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Noobot.Core.Configuration;
+using Noobot.Core.Logging;
+using Noobot.Examples.Web.Configuration;
+using Noobot.Examples.Web.Logging;
 using StructureMap;
 
 namespace Noobot.Examples.Web.DependencyResolution
@@ -32,7 +36,21 @@ namespace Noobot.Examples.Web.DependencyResolution
                     scan.WithDefaultConventions();
                     scan.With(new ControllerConvention());
                 });
-            //For<IExample>().Use<Example>();
+
+            var log = new MemoryLog();
+            For<ILog>().Use(log);
+            For<IMemoryLog>().Use(log);
+
+            For<IConfigReader>()
+                .Use<JsonConfigReader>()
+                .Singleton();
+
+            For<IConfiguration>()
+                .Use<Toolbox.Configuration>();
+
+            For<INoobotHost>()
+                .Use(x => x.GetInstance<NoobotHost>().Start())
+                .Singleton();
         }
     }
 }

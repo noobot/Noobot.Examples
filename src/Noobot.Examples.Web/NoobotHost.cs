@@ -3,25 +3,25 @@ using Noobot.Core;
 using Noobot.Core.Configuration;
 using Noobot.Core.DependencyResolution;
 using Noobot.Core.Logging;
+using Noobot.Examples.Web.Logging;
 
-namespace Noobot.Examples.ConsoleService
+namespace Noobot.Examples.Web
 {
-    public class NoobotHost
+    public class NoobotHost : INoobotHost
     {
-        private readonly IConfigReader _configReader;
+        private readonly IContainerFactory _containerFactory;
+        private readonly IMemoryLog _memoryLog;
         private INoobotCore _noobotCore;
-        private readonly Toolbox.Configuration _configuration;
 
-        public NoobotHost(IConfigReader configReader)
+        public NoobotHost(IContainerFactory containerFactory, IMemoryLog memoryLog)
         {
-            _configReader = configReader;
-            _configuration = new Toolbox.Configuration();
+            _containerFactory = containerFactory;
+            _memoryLog = memoryLog;
         }
 
-        public void Start()
+        public INoobotHost Start()
         {
-            IContainerFactory containerFactory = new ContainerFactory(_configuration, _configReader, new ConsoleLog());
-            INoobotContainer container = containerFactory.CreateContainer();
+            INoobotContainer container = _containerFactory.CreateContainer();
             _noobotCore = container.GetNoobotCore();
 
             Console.WriteLine("Connecting...");
@@ -35,12 +35,13 @@ namespace Noobot.Examples.ConsoleService
                     }
                 })
                 .Wait();
+
+            return this;
         }
 
-        public void Stop()
+        public string[] GetLog()
         {
-            Console.WriteLine("Disconnecting...");
-            _noobotCore?.Disconnect();
+            return _memoryLog.FullLog();
         }
     }
 }
