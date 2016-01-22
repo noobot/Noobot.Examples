@@ -12,8 +12,7 @@ namespace Noobot.Examples.ConsoleService.Configuration
     {
         public string SlackApiKey()
         {
-            JObject jObject = GetJObject();
-            return jObject.Value<string>("slack:apiToken");
+            return GetConfigEntry<string>("slack:apiToken");
         }
 
         public bool HelpEnabled()

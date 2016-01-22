@@ -16,25 +16,25 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using Noobot.Core.Configuration;
+using Noobot.Core.DependencyResolution;
 using Noobot.Core.Logging;
 using Noobot.Examples.Web.Configuration;
 using Noobot.Examples.Web.Logging;
 using StructureMap;
 
-namespace Noobot.Examples.Web.DependencyResolution
-{
+namespace Noobot.Examples.Web.DependencyResolution {
+    using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
+	
+    public class DefaultRegistry : Registry {
+        #region Constructors and Destructors
 
-    public class DefaultRegistry : Registry
-    {
-        public DefaultRegistry()
-        {
+        public DefaultRegistry() {
             Scan(
-                scan =>
-                {
+                scan => {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
-                    scan.With(new ControllerConvention());
+					scan.With(new ControllerConvention());
                 });
 
             var log = new MemoryLog();
@@ -51,6 +51,11 @@ namespace Noobot.Examples.Web.DependencyResolution
             For<INoobotHost>()
                 .Use(x => x.GetInstance<NoobotHost>().Start())
                 .Singleton();
+
+            For<IContainerFactory>()
+                .Use(x => new ContainerFactory(x.GetInstance<IConfiguration>(), x.GetInstance<IConfigReader>(), x.GetInstance<ILog>()));
         }
+
+        #endregion
     }
 }

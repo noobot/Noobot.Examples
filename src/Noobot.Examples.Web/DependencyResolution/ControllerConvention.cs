@@ -18,20 +18,22 @@
 using StructureMap;
 using StructureMap.Graph.Scanning;
 using WebGrease.Css.Extensions;
-using System.Web.Mvc;
-using StructureMap.Graph;
-using StructureMap.Pipeline;
-using StructureMap.TypeRules;
 
-namespace Noobot.Examples.Web.DependencyResolution
-{
-    public class ControllerConvention : IRegistrationConvention
-    {
+namespace Noobot.Examples.Web.DependencyResolution {
+    using System;
+    using System.Web.Mvc;
+
+    using StructureMap.Configuration.DSL;
+    using StructureMap.Graph;
+    using StructureMap.Pipeline;
+    using StructureMap.TypeRules;
+
+    public class ControllerConvention : IRegistrationConvention {
         public void ScanTypes(TypeSet types, Registry registry)
         {
             types.FindTypes(TypeClassification.Concretes | TypeClassification.Closed).ForEach(type =>
             {
-                if (type.CanBeCastTo<ControllerBase>() && !type.IsAbstract)
+                if (type.CanBeCastTo<ControllerBase>())
                 {
                     registry.For(type).LifecycleIs(new UniquePerRequestLifecycle()).Use(type);
                 }

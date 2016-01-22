@@ -1,16 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Noobot.Examples.Web.Logging
 {
     public class MemoryLog : IMemoryLog
     {
-        private readonly List<string> _log = new List<string>();
-        private readonly object _lock = new object();
+        private readonly List<string> _log;
+        private readonly object _lock;
+
+        public MemoryLog()
+        {
+            _log = new List<string>();
+            _lock = new object();
+        }
 
         public void Log(string data)
         {
             lock (_lock)
             {
+                Console.WriteLine(data);
+                Debug.WriteLine(data);
                 _log.Add(data);
             }
         }

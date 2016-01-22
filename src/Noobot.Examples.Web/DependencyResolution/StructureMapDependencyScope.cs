@@ -15,8 +15,9 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Noobot.Examples.Web.DependencyResolution
-{
+using System.Diagnostics;
+
+namespace Noobot.Examples.Web.DependencyResolution {
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -74,7 +75,7 @@ namespace Noobot.Examples.Web.DependencyResolution
         {
             get
             {
-                var ctx = Container.TryGetInstance<HttpContextBase>();
+                HttpContextBase ctx = Container.TryGetInstance<HttpContextBase>();
                 return ctx ?? new HttpContextWrapper(System.Web.HttpContext.Current);
             }
         }
@@ -127,9 +128,17 @@ namespace Noobot.Examples.Web.DependencyResolution
 
             if (string.IsNullOrEmpty(key))
             {
-                return serviceType.IsAbstract || serviceType.IsInterface
-                    ? container.TryGetInstance(serviceType)
-                    : container.GetInstance(serviceType);
+                try
+                {
+                    return serviceType.IsAbstract || serviceType.IsInterface
+                        ? container.TryGetInstance(serviceType)
+                        : container.GetInstance(serviceType);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    throw;
+                }
             }
 
             return container.GetInstance(serviceType, key);

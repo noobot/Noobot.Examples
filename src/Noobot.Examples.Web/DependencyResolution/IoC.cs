@@ -16,8 +16,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-namespace Noobot.Examples.Web.DependencyResolution
-{
+namespace Noobot.Examples.Web.DependencyResolution {
     using StructureMap;
 
     public static class IoC

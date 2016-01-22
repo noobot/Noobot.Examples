@@ -1,8 +1,6 @@
 ﻿using System;
 using Noobot.Core;
-using Noobot.Core.Configuration;
 using Noobot.Core.DependencyResolution;
-using Noobot.Core.Logging;
 using Noobot.Examples.Web.Logging;
 
 namespace Noobot.Examples.Web
@@ -33,15 +31,14 @@ namespace Noobot.Examples.Web
                     {
                         Console.WriteLine($"Error connecting to Slack: {task.Exception}");
                     }
-                })
-                .Wait();
+                });
 
             return this;
         }
 
         public string[] GetLog()
         {
-            return _memoryLog.FullLog();
+            return _memoryLog?.FullLog() ?? new string[0];
         }
     }
 }
