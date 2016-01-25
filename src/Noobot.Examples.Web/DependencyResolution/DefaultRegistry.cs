@@ -42,11 +42,11 @@ namespace Noobot.Examples.Web.DependencyResolution {
             For<IMemoryLog>().Use(log);
 
             For<IConfigReader>()
-                .Use<JsonConfigReader>()
+                .Use<ExampleJsonConfigReader>()
                 .Singleton();
 
             For<IConfiguration>()
-                .Use<Toolbox.Configuration>();
+                .Use<ExampleConfiguration>();
 
             For<INoobotHost>()
                 .Use(x => x.GetInstance<NoobotHost>().Start())

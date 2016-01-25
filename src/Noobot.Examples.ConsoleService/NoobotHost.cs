@@ -3,6 +3,7 @@ using Noobot.Core;
 using Noobot.Core.Configuration;
 using Noobot.Core.DependencyResolution;
 using Noobot.Core.Logging;
+using Noobot.Examples.ConsoleService.Configuration;
 
 namespace Noobot.Examples.ConsoleService
 {
@@ -10,12 +11,12 @@ namespace Noobot.Examples.ConsoleService
     {
         private readonly IConfigReader _configReader;
         private INoobotCore _noobotCore;
-        private readonly Toolbox.Configuration _configuration;
+        private readonly IConfiguration _configuration;
 
         public NoobotHost(IConfigReader configReader)
         {
             _configReader = configReader;
-            _configuration = new Toolbox.Configuration();
+            _configuration = new ExampleConfiguration();
         }
 
         public void Start()

@@ -3,12 +3,12 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Noobot.Core.Configuration;
 
-namespace Noobot.Examples.ConsoleService.Configuration
+namespace Noobot.Examples.Web.Configuration
 {
     /// <summary>
     /// An example of how you could create a config reader. You might want to read out of AppConfig instead?
     /// </summary>
-    public class JsonConfigReader : IConfigReader
+    public class ExampleJsonConfigReader : IConfigReader
     {
         public string SlackApiKey()
         {

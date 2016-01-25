@@ -77,12 +77,12 @@
       <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Noobot.Core, Version=1.0.5855.41541, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Noobot.Core.1.0.5855.41541\lib\net451\Noobot.Core.dll</HintPath>
+    <Reference Include="Noobot.Core, Version=1.0.5865.39778, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Noobot.Core.1.0.5865.39778\lib\net451\Noobot.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Noobot.Toolbox, Version=1.0.5861.33660, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Noobot.Toolbox.1.0.5861.33660\lib\net451\Noobot.Toolbox.dll</HintPath>
+    <Reference Include="Noobot.Toolbox, Version=1.0.5868.15693, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Noobot.Toolbox.1.0.5868.15693\lib\net451\Noobot.Toolbox.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -221,12 +221,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Configuration\JsonConfigReader.cs" />
+    <Compile Include="Configuration\ExampleJsonConfigReader.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
+    <Compile Include="Configuration\ExampleConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

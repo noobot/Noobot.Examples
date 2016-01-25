@@ -57,12 +57,12 @@
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Noobot.Core, Version=1.0.5855.41541, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Noobot.Core.1.0.5855.41541\lib\net451\Noobot.Core.dll</HintPath>
+    <Reference Include="Noobot.Core, Version=1.0.5865.39778, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Noobot.Core.1.0.5865.39778\lib\net451\Noobot.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Noobot.Toolbox, Version=1.0.5861.33660, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Noobot.Toolbox.1.0.5861.33660\lib\net451\Noobot.Toolbox.dll</HintPath>
+    <Reference Include="Noobot.Toolbox">
+      <HintPath>..\..\packages\Noobot.Toolbox.1.0.5868.15693\lib\net451\Noobot.Toolbox.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -103,7 +103,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\JsonConfigReader.cs" />
+    <Compile Include="Configuration\ExampleJsonConfigReader.cs" />
+    <Compile Include="Configuration\ExampleConfiguration.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\TextWriterDistributor.cs" />
     <Compile Include="NoobotHost.cs" />
@@ -116,7 +117,9 @@
     <None Include="Configuration\config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="noobot.ico" />
