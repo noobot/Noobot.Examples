@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Noobot.Examples.ConsoleService</RootNamespace>
     <AssemblyName>Noobot.Examples.ConsoleService</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,51 +36,39 @@
   <ItemGroup>
     <Reference Include="FlatFile.Core, Version=0.2.16.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FlatFile.Core.0.2.16\lib\net45\FlatFile.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="FlatFile.Core.Attributes, Version=0.2.16.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FlatFile.Core.Attributes.0.2.16\lib\net45\FlatFile.Core.Attributes.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="FlatFile.Delimited, Version=0.2.16.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FlatFile.Delimited.0.2.16\lib\net45\FlatFile.Delimited.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="FlatFile.Delimited.Attributes, Version=0.2.16.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FlatFile.Delimited.Attributes.0.2.16\lib\net45\FlatFile.Delimited.Attributes.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="FlickrNet, Version=3.17.0.0, Culture=neutral, PublicKeyToken=2491df59efa5d132, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FlickrNet.3.17.0\lib\net20\FlickrNet.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Noobot.Core, Version=1.0.5865.39778, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Noobot.Core.1.0.5865.39778\lib\net451\Noobot.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Noobot.Toolbox">
+    <Reference Include="Noobot.Toolbox, Version=1.0.5868.15693, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Noobot.Toolbox.1.0.5868.15693\lib\net451\Noobot.Toolbox.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net451\RestSharp.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="SlackConnector, Version=3.0.5811.41364, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SlackConnector.3.0.5811.41364\lib\net45\SlackConnector.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="StructureMap, Version=4.0.1.318, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\structuremap.4.0.1.318\lib\net40\StructureMap.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="StructureMap.Net4, Version=4.0.1.318, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\structuremap.4.0.1.318\lib\net40\StructureMap.Net4.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,15 +80,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="Topshelf, Version=3.3.154.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Topshelf.3.3.1\lib\net40-full\Topshelf.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="websocket-sharp-with-proxy-support, Version=1.0.2.28248, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\websocket-sharp-with-proxy-support.1.9.1\lib\net35-client\websocket-sharp-with-proxy-support.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="xFunc.Maths, Version=2.15.16.0, Culture=neutral, PublicKeyToken=a8643d6339aa5b3b, processorArchitecture=MSIL">
       <HintPath>..\..\packages\xFunc.Maths.2.15.16\lib\net451\xFunc.Maths.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -117,9 +103,8 @@
     <None Include="Configuration\config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="FlickrNet.chm" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="noobot.ico" />

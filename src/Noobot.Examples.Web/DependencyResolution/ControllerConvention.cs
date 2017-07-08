@@ -14,30 +14,33 @@
 // limitations under the License.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
-
+using System;
+using System.Web.Mvc;
 using StructureMap;
 using StructureMap.Graph.Scanning;
-using WebGrease.Css.Extensions;
+using StructureMap.Configuration.DSL;
+using StructureMap.Graph;
+using StructureMap.Pipeline;
+using StructureMap.TypeRules;
 
 namespace Noobot.Examples.Web.DependencyResolution {
-    using System;
-    using System.Web.Mvc;
 
-    using StructureMap.Configuration.DSL;
-    using StructureMap.Graph;
-    using StructureMap.Pipeline;
-    using StructureMap.TypeRules;
+    public class ControllerConvention : IRegistrationConvention
+    {
+        #region Public Methods and Operators
 
-    public class ControllerConvention : IRegistrationConvention {
+        public void Process(Type type, Registry registry)
+        {
+            if (type.CanBeCastTo<Controller>() && !type.IsAbstract)
+            {
+                registry.For(type).LifecycleIs(new UniquePerRequestLifecycle());
+            }
+        }
+
+        #endregion
+
         public void ScanTypes(TypeSet types, Registry registry)
         {
-            types.FindTypes(TypeClassification.Concretes | TypeClassification.Closed).ForEach(type =>
-            {
-                if (type.CanBeCastTo<ControllerBase>())
-                {
-                    registry.For(type).LifecycleIs(new UniquePerRequestLifecycle()).Use(type);
-                }
-            });
         }
     }
 }

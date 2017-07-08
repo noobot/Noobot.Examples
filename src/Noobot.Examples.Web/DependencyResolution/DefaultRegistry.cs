@@ -15,14 +15,13 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Noobot.Core.Configuration;
-using Noobot.Core.DependencyResolution;
-using Noobot.Core.Logging;
-using Noobot.Examples.Web.Configuration;
-using Noobot.Examples.Web.Logging;
-using StructureMap;
-
 namespace Noobot.Examples.Web.DependencyResolution {
+    using Noobot.Core.Configuration;
+    using Noobot.Core.DependencyResolution;
+    using Noobot.Core.Logging;
+    using Noobot.Examples.Web.Configuration;
+    using Noobot.Examples.Web.Logging;
+    using StructureMap;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
 	

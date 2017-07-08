@@ -15,8 +15,6 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Diagnostics;
-
 namespace Noobot.Examples.Web.DependencyResolution {
     using System;
     using System.Collections.Generic;
@@ -26,12 +24,11 @@ namespace Noobot.Examples.Web.DependencyResolution {
     using Microsoft.Practices.ServiceLocation;
 
     using StructureMap;
-
+	
     /// <summary>
     /// The structure map dependency scope.
     /// </summary>
-    public class StructureMapDependencyScope : ServiceLocatorImplBase
-    {
+    public class StructureMapDependencyScope : ServiceLocatorImplBase {
         #region Constants and Fields
 
         private const string NestedContainerKey = "Nested.Container.Key";
@@ -40,10 +37,8 @@ namespace Noobot.Examples.Web.DependencyResolution {
 
         #region Constructors and Destructors
 
-        public StructureMapDependencyScope(IContainer container)
-        {
-            if (container == null)
-            {
+        public StructureMapDependencyScope(IContainer container) {
+            if (container == null) {
                 throw new ArgumentNullException("container");
             }
             Container = container;
@@ -55,14 +50,11 @@ namespace Noobot.Examples.Web.DependencyResolution {
 
         public IContainer Container { get; set; }
 
-        public IContainer CurrentNestedContainer
-        {
-            get
-            {
+        public IContainer CurrentNestedContainer {
+            get {
                 return (IContainer)HttpContext.Items[NestedContainerKey];
             }
-            set
-            {
+            set {
                 HttpContext.Items[NestedContainerKey] = value;
             }
         }
@@ -71,11 +63,9 @@ namespace Noobot.Examples.Web.DependencyResolution {
 
         #region Properties
 
-        private HttpContextBase HttpContext
-        {
-            get
-            {
-                HttpContextBase ctx = Container.TryGetInstance<HttpContextBase>();
+        private HttpContextBase HttpContext {
+            get {
+                var ctx = Container.TryGetInstance<HttpContextBase>();
                 return ctx ?? new HttpContextWrapper(System.Web.HttpContext.Current);
             }
         }
@@ -84,32 +74,26 @@ namespace Noobot.Examples.Web.DependencyResolution {
 
         #region Public Methods and Operators
 
-        public void CreateNestedContainer()
-        {
-            if (CurrentNestedContainer != null)
-            {
+        public void CreateNestedContainer() {
+            if (CurrentNestedContainer != null) {
                 return;
             }
             CurrentNestedContainer = Container.GetNestedContainer();
         }
 
-        public void Dispose()
-        {
+        public void Dispose() {
             DisposeNestedContainer();
             Container.Dispose();
         }
 
-        public void DisposeNestedContainer()
-        {
-            if (CurrentNestedContainer != null)
-            {
+        public void DisposeNestedContainer() {
+            if (CurrentNestedContainer != null) {
                 CurrentNestedContainer.Dispose();
-                CurrentNestedContainer = null;
+				CurrentNestedContainer = null;
             }
         }
 
-        public IEnumerable<object> GetServices(Type serviceType)
-        {
+        public IEnumerable<object> GetServices(Type serviceType) {
             return DoGetAllInstances(serviceType);
         }
 
@@ -117,28 +101,17 @@ namespace Noobot.Examples.Web.DependencyResolution {
 
         #region Methods
 
-        protected override IEnumerable<object> DoGetAllInstances(Type serviceType)
-        {
+        protected override IEnumerable<object> DoGetAllInstances(Type serviceType) {
             return (CurrentNestedContainer ?? Container).GetAllInstances(serviceType).Cast<object>();
         }
 
-        protected override object DoGetInstance(Type serviceType, string key)
-        {
+        protected override object DoGetInstance(Type serviceType, string key) {
             IContainer container = (CurrentNestedContainer ?? Container);
 
-            if (string.IsNullOrEmpty(key))
-            {
-                try
-                {
-                    return serviceType.IsAbstract || serviceType.IsInterface
-                        ? container.TryGetInstance(serviceType)
-                        : container.GetInstance(serviceType);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex);
-                    throw;
-                }
+            if (string.IsNullOrEmpty(key)) {
+                return serviceType.IsAbstract || serviceType.IsInterface
+                    ? container.TryGetInstance(serviceType)
+                    : container.GetInstance(serviceType);
             }
 
             return container.GetInstance(serviceType, key);
