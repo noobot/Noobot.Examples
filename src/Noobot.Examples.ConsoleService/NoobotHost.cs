@@ -1,8 +1,8 @@
 ﻿using System;
+using Common.Logging;
 using Noobot.Core;
 using Noobot.Core.Configuration;
 using Noobot.Core.DependencyResolution;
-using Noobot.Core.Logging;
 using Noobot.Examples.ConsoleService.Configuration;
 
 namespace Noobot.Examples.ConsoleService
@@ -21,7 +21,7 @@ namespace Noobot.Examples.ConsoleService
 
         public void Start()
         {
-            IContainerFactory containerFactory = new ContainerFactory(_configuration, _configReader, new ConsoleLog());
+            IContainerFactory containerFactory = new ContainerFactory(_configuration, _configReader, LogManager.GetLogger(GetType()));
             INoobotContainer container = containerFactory.CreateContainer();
             _noobotCore = container.GetNoobotCore();
 

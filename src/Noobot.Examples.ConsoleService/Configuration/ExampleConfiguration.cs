@@ -1,5 +1,6 @@
 ﻿using Noobot.Core.Configuration;
-using Noobot.Toolbox.Pipeline.Middleware;
+using Noobot.Toolbox.Middleware;
+using Noobot.Toolbox.Plugins;
 
 namespace Noobot.Examples.ConsoleService.Configuration
 {
@@ -11,8 +12,10 @@ namespace Noobot.Examples.ConsoleService.Configuration
             UseMiddleware<JokeMiddleware>();
             UseMiddleware<CalculatorMiddleware>();
             UseMiddleware<FlickrMiddleware>();
+            UseMiddleware<ScheduleMiddleware>();
 
-            UsePlugin<Toolbox.Plugins.StoragePlugin>();
+            UsePlugin<JsonStoragePlugin>();
+            UsePlugin<SchedulePlugin>();
         }
     }
 }

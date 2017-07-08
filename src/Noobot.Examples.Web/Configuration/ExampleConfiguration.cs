@@ -1,5 +1,5 @@
 ﻿using Noobot.Core.Configuration;
-using Noobot.Toolbox.Pipeline.Middleware;
+using Noobot.Toolbox.Middleware;
 
 namespace Noobot.Examples.Web.Configuration
 {
@@ -12,7 +12,7 @@ namespace Noobot.Examples.Web.Configuration
             UseMiddleware<CalculatorMiddleware>();
             UseMiddleware<FlickrMiddleware>();
 
-            UsePlugin<Toolbox.Plugins.StoragePlugin>();
+            UsePlugin<Toolbox.Plugins.JsonStoragePlugin>();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Noobot.Core.Logging;
+﻿using Common.Logging;
 
 namespace Noobot.Examples.Web.Logging
 {

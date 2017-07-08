@@ -15,15 +15,15 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Noobot.Core;
+
 namespace Noobot.Examples.Web.DependencyResolution {
+    using Common.Logging;
     using Noobot.Core.Configuration;
     using Noobot.Core.DependencyResolution;
-    using Noobot.Core.Logging;
     using Noobot.Examples.Web.Configuration;
     using Noobot.Examples.Web.Logging;
     using StructureMap;
-    using StructureMap.Configuration.DSL;
-    using StructureMap.Graph;
 	
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
@@ -32,6 +32,7 @@ namespace Noobot.Examples.Web.DependencyResolution {
             Scan(
                 scan => {
                     scan.TheCallingAssembly();
+                    scan.AssemblyContainingType<INoobotCore>();
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
@@ -39,11 +40,7 @@ namespace Noobot.Examples.Web.DependencyResolution {
             var log = new MemoryLog();
             For<ILog>().Use(log);
             For<IMemoryLog>().Use(log);
-
-            For<IConfigReader>()
-                .Use<ExampleJsonConfigReader>()
-                .Singleton();
-
+            
             For<IConfiguration>()
                 .Use<ExampleConfiguration>();
 
