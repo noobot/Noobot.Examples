@@ -282,3 +282,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Dotnet core configuration files for transformation
+appsettings.*.json
