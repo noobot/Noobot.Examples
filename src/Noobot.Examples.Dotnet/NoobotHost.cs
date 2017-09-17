@@ -37,8 +37,6 @@ namespace Noobot.Examples.Dotnet
                 })
                 .GetAwaiter()
                 .GetResult();
-
-
         }
 
         public void Stop()
