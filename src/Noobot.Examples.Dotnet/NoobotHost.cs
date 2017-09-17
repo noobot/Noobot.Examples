@@ -35,7 +35,10 @@ namespace Noobot.Examples.Dotnet
                         Console.WriteLine($"Error connecting to Slack: {task.Exception}");
                     }
                 })
-                .Wait();
+                .GetAwaiter()
+                .GetResult();
+
+
         }
 
         public void Stop()
