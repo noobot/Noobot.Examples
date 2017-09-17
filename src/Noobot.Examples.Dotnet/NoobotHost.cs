@@ -1,12 +1,12 @@
-﻿namespace Noobot.Examples.Dotnet
+﻿using System;
+using Common.Logging;
+using Noobot.Core;
+using Noobot.Core.Configuration;
+using Noobot.Core.DependencyResolution;
+using Noobot.Examples.Dotnet.Configuration;
+
+namespace Noobot.Examples.Dotnet
 {
-    using System;
-    using Common.Logging;
-    using Core;
-    using Core.Configuration;
-    using Core.DependencyResolution;
-    using Configuration;
-    
     public class NoobotHost
     {
         private readonly IConfigReader _configReader;

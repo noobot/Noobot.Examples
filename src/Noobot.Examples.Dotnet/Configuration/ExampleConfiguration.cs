@@ -1,9 +1,8 @@
 ﻿using Noobot.Core.Configuration;
+using Noobot.Toolbox.Middleware;
 
 namespace Noobot.Examples.Dotnet.Configuration
 {
-    using Noobot.Toolbox.Middleware;
-    
     public class ExampleConfiguration : ConfigurationBase
     {
         public ExampleConfiguration()
