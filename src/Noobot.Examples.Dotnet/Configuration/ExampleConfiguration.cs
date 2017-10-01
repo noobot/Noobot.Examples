@@ -8,6 +8,7 @@ namespace Noobot.Examples.Dotnet.Configuration
         public ExampleConfiguration()
         {
             UseMiddleware<WelcomeMiddleware>();
+            UseMiddleware<JokeMiddleware>();
         }
     }
 }

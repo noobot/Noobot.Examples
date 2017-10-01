@@ -18,7 +18,7 @@ namespace Noobot.Examples.ConsoleService
             {
                 x.Service<NoobotHost>(s =>
                 {
-                    s.ConstructUsing(name => new NoobotHost(new ConfigReader()));
+                    s.ConstructUsing(name => new NoobotHost(new JsonConfigReader()));
 
                     s.WhenStarted(n =>
                     {
