@@ -1,8 +1,7 @@
 ﻿using Noobot.Core.Configuration;
 using Noobot.Toolbox.Middleware;
-using Noobot.Toolbox.Plugins;
 
-namespace Noobot.Examples.ConsoleService.Configuration
+namespace Noobot.Examples.Dotnet.Configuration
 {
     public class ExampleConfiguration : ConfigurationBase
     {
@@ -10,10 +9,6 @@ namespace Noobot.Examples.ConsoleService.Configuration
         {
             UseMiddleware<WelcomeMiddleware>();
             UseMiddleware<JokeMiddleware>();
-            UseMiddleware<ScheduleMiddleware>();
-
-            UsePlugin<JsonStoragePlugin>();
-            UsePlugin<SchedulePlugin>();
         }
     }
 }
