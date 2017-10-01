@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Common.Logging;
 
-namespace Noobot.Examples.Dotnet.Logging
+namespace Noobot.Examples.Asp.Logging
 {
     public class MemoryLog : IMemoryLog
     {

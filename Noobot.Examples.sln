@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26823.1
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noobot.Examples.ConsoleService", "src\Noobot.Examples.ConsoleService\Noobot.Examples.ConsoleService.csproj", "{E8742B3A-5345-425B-B6CB-4406F54A3C63}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noobot.Examples.Dotnet", "src\Noobot.Examples.Dotnet\Noobot.Examples.Dotnet.csproj", "{0246C8FC-D276-4F65-89B4-5000B4171AB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noobot.Examples.Asp", "src\Noobot.Examples.Dotnet\Noobot.Examples.Asp.csproj", "{0246C8FC-D276-4F65-89B4-5000B4171AB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

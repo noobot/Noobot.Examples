@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Noobot.Examples.Dotnet
+namespace Noobot.Examples.Asp
 {
     public class Program
     {

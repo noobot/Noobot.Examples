@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Noobot.Core.Configuration;
 
-namespace Noobot.Examples.Dotnet.Configuration
+namespace Noobot.Examples.Asp.Configuration
 {
     public class DotnetCoreConfigReader : IConfigReader
     {

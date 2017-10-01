@@ -1,7 +1,7 @@
 ﻿using Noobot.Core.Configuration;
 using Noobot.Toolbox.Middleware;
 
-namespace Noobot.Examples.Dotnet.Configuration
+namespace Noobot.Examples.Asp.Configuration
 {
     public class ExampleConfiguration : ConfigurationBase
     {

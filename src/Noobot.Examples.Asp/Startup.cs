@@ -1,5 +1,4 @@
 ﻿using System;
-using Noobot.Examples.Dotnet.Configuration;
 using Common.Logging;
 using Common.Logging.Configuration;
 using Microsoft.AspNetCore.Builder;
@@ -7,9 +6,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Noobot.Examples.Dotnet.Logging;
+using Noobot.Examples.Asp.Configuration;
+using Noobot.Examples.Asp.Logging;
 
-namespace Noobot.Examples.Dotnet
+namespace Noobot.Examples.Asp
 {
     public class Startup
     {
