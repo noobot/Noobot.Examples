@@ -10,8 +10,6 @@ namespace Noobot.Examples.ConsoleService.Configuration
         {
             UseMiddleware<WelcomeMiddleware>();
             UseMiddleware<JokeMiddleware>();
-            UseMiddleware<CalculatorMiddleware>();
-            UseMiddleware<FlickrMiddleware>();
             UseMiddleware<ScheduleMiddleware>();
 
             UsePlugin<JsonStoragePlugin>();
